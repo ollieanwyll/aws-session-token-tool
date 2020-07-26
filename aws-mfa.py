@@ -27,6 +27,7 @@ try:
     file.close()
 except IOError:
     print "Failed to read credentials file."
+    exit()
 
 # Get AWS session token
 client = boto3.client('sts')
