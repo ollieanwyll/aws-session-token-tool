@@ -6,7 +6,7 @@ A python script that takes an MFA token code, retrieves a new session login from
 
 * Boto3 - `pip install boto3`
 
-* The AWS profile you wish to replace must be on the last lines of your `.aws/credentials` file.
+* The AWS profile you wish to replace must be on the last lines of your `credentials` file.
 
 * AWS Credentials file must be located at `~/.aws/credentials`
 
