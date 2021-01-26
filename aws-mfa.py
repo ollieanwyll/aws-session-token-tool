@@ -9,15 +9,15 @@ UserSerialNumber = 'REPLACE ME'
 # ---------
 
 # User input and validation
-UserTokenCode = raw_input("Enter AWS Token Code: ")
+UserTokenCode = input("Enter AWS Token Code: ")
 try:
    val = int(UserTokenCode)
 except ValueError:
-   print 'Invaild token characters.'
+   print('Invaild token characters.')
    exit()
 
 if len(UserTokenCode) != 6:
-    print 'Invaild token length.'
+    print('Invaild token length.')
     exit()
 
 # Open credentials file
@@ -26,7 +26,7 @@ try:
     lines = file.read().splitlines()
     file.close()
 except IOError:
-    print "Failed to read credentials file."
+    print('Failed to read credentials file.')
     exit()
 
 # Get AWS session token
@@ -37,9 +37,9 @@ try:
         SerialNumber=UserSerialNumber,
         TokenCode=UserTokenCode
     )
-    print 'AWS Session token retrived..'
+    print('AWS Session token retrived..')
 except ClientError:
-    print 'Unable to authenticate with AWS.'
+    print('Unable to authenticate with AWS.')
     exit()
 
 AccessKeyId = response['Credentials']['AccessKeyId']
@@ -61,4 +61,4 @@ for line in lines:
   fileWrite.write(line + '\n')
 fileWrite.close()
 
-print 'SUCCESS - AWS Credentials file overwritten.'
+print('SUCCESS - AWS Credentials file overwritten.')
